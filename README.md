@@ -6,6 +6,13 @@
 **Skills Demonstrated:** OT protocol analysis, Modbus TCP dissection, anomaly detection, MITRE ATT&CK for ICS mapping
 
 ```
+
+authorised_masters:
+    - "10.10.10.20"       # Your authorised master IP from Project 1
+
+  plc_addresses:
+    - "10.10.10.10"       # Your PLC IP from Project 1
+
 STRUCTURE:
 ---
 ## Section 1: Modbus TCP Protocol Primer
