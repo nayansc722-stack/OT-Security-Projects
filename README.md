@@ -13,6 +13,8 @@ authorised_masters:
   plc_addresses:
     - "10.10.10.10"       # Your PLC IP from Project 1
 
+The only time you would change the IPs is if you were running this tool on a different network — for example, a new PCAP from a different company with different IP addresses. In that case you would replace 10.10.10.20 with whatever the authorised master IP is in that new dataset.
+
 STRUCTURE:
 ---
 ## Section 1: Modbus TCP Protocol Primer
