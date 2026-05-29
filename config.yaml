@@ -1,0 +1,80 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ot-inspect configuration file
+#
+# Edit this file once for your network. The tool reads it at startup.
+# No code changes needed when moving between environments.
+#
+# Usage:
+#   python ot_inspect.py --pcap capture.pcap --config config.yaml
+# ═══════════════════════════════════════════════════════════════════════════════
+
+network:
+  # IPs authorised to send commands to PLCs (SCADA masters, HMIs, engineering WS)
+  # All other sources sending write/control commands will trigger alerts
+  authorised_masters:
+    - "10.10.10.20"       # Engineering Workstation (4SICS lab)
+    # - "192.168.10.100"  # Add your real master IPs here
+
+  # Known PLC/RTU IP addresses
+  # Used to detect when a field device initiates unexpected outbound connections
+  plc_addresses:
+    - "10.10.10.10"       # Siemens S7 PLC (4SICS lab)
+    # - "192.168.1.10"    # Add your real PLC IPs here
+
+  # IT network prefixes — OT protocols should never originate from here
+  # A match triggers a segmentation breach alert
+  it_network_prefixes:
+    - "10.0.0."
+    # - "172.16."         # Add your IT VLAN prefixes here
+
+  # OT network prefixes — used to detect when OT devices call the internet
+  ot_network_prefixes:
+    - "10.10.10."
+    - "192.168."
+
+detection:
+  # Anomaly detection thresholds
+  # Tune these per environment — lower = more sensitive, higher = fewer alerts
+
+  # Minimum unique Unit IDs a single source must query to trigger scan alert
+  unit_id_scan_threshold: 5
+
+  # Minimum writes per second to trigger write burst alert
+  write_burst_per_second: 3
+
+  # Modbus exception responses before triggering exception flood alert
+  exception_flood_count: 5
+  exception_flood_window_seconds: 30
+
+  # S7comm: flag any source querying this many unique PLCs as scanning
+  s7_scan_plc_threshold: 3
+
+reporting:
+  # Output directory for generated reports
+  output_dir: "./output"
+
+  # Report title shown in HTML header
+  title: "OT Network Security Analysis Report"
+
+  # Analyst name shown in report footer
+  analyst: "Nayanshree"
+
+  # Severity colours (used in HTML report)
+  colours:
+    CRITICAL: "#FF3333"
+    HIGH:     "#FF8800"
+    MEDIUM:   "#FFD700"
+    LOW:      "#00CC66"
+    INFO:     "#4DBBFF"
+
+protocols:
+  # Standard ICS protocol ports — used for protocol discovery and general rules
+  modbus_port:     502
+  s7comm_port:     102
+  dnp3_port:       20000
+  enip_port:       44818
+  opcua_port:      4840
+  niagara_port:    1911
+  fins_port:       9600
+  iec104_port:     2404
+  bacnet_port:     47808
