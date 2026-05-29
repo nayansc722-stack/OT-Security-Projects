@@ -5,6 +5,7 @@
 **Dataset:** Public ICS PCAP files from ITI/ICS-Security-Tools & Netresec  
 **Skills Demonstrated:** OT protocol analysis, Modbus TCP dissection, anomaly detection, MITRE ATT&CK for ICS mapping
 
+```
 STRUCTURE:
 ---
 ## Section 1: Modbus TCP Protocol Primer
