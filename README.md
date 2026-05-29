@@ -171,13 +171,4 @@ No Suricata, no Wireshark, no Docker, no paid subscriptions.
 
 ---
 
-## Part of OT Security Portfolio
 
-| Project | Description |
-|---------|-------------|
-| Project 1 | Modbus TCP + S7comm Analyzer (notebook) |
-| Project 2 | Suricata IDS Rules (25 rules, validated) |
-| **ot-inspect** | **Production CLI tool (this repo)** |
-| Project 3 | Purdue Model Network Design |
-| Project 4 | Passive Asset Discovery |
-| Project 5 | ICS Incident Response Playbook |
